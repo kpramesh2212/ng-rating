@@ -4,15 +4,27 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {NavBarComponent} from './navbar.component';
+import {HomeComponent} from './home.component';
+import {ProjectComponent} from './project.component';
+import {ProductComponent} from './product.component';
+import {CriterionComponent} from './criterion.component';
+import {RootRoute} from './app.routing';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    HomeComponent,
+    ProjectComponent,
+    ProductComponent,
+    CriterionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RootRoute
   ],
   providers: [],
   bootstrap: [AppComponent]
