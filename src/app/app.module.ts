@@ -12,6 +12,8 @@ import {CriterionComponent} from './criterion.component';
 import {RootRoute} from './app.routing';
 import {ConfigService} from './config.service';
 import {ConfigLoader} from './configloader';
+import {ProjectService} from './project.service';
+import {Logger} from 'angular2-logger/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {ConfigLoader} from './configloader';
       useFactory: ConfigLoader,
       deps: [ConfigService],
       multi: true
-    }
+    },
+    Logger
   ],
   bootstrap: [AppComponent]
 })

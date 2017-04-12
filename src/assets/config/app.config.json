@@ -1,4 +1,5 @@
 {
   "backendHost": "localhost",
-  "backendPort": 7001
+  "backendPort": 7001,
+  "logLevel": "4"
 }

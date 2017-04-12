@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ConfigService {
-  private config: { [key: string]: string|number} = {};
+  private config: Map<string, string|number> = null;
   constructor(private _http: Http) {
   }
   public load(url: string) {
