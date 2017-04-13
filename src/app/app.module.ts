@@ -38,7 +38,8 @@ import {Logger} from 'angular2-logger/core';
       deps: [ConfigService],
       multi: true
     },
-    Logger
+    Logger,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })
