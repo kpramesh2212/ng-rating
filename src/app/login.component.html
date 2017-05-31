@@ -1,0 +1,36 @@
+<form class="form-horizontal" [formGroup]="loginForm" #f="ngForm" (submit)="onSubmit()">
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email"
+             class="form-control"
+             id="email"
+             formControlName="email"
+             placeholder="Email">
+    </div>
+  </div>
+  <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors">
+    <span class="col-sm-2">&nbsp;</span>
+    <p class="col-sm-10 alert alert-danger">Email is required!</p>
+  </div>
+  <div class="form-group">
+    <label for="pass" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password"
+             class="form-control"
+             id="pass"
+             name="password"
+             formControlName="password"
+             placeholder="Password">
+    </div>
+  </div>
+  <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors">
+    <span class="col-sm-2">&nbsp;</span>
+    <p class="col-sm-10 alert alert-danger">Email is required!</p>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Sign in</button>
+    </div>
+  </div>
+</form>

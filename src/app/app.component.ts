@@ -1,26 +1,21 @@
-import { Component } from '@angular/core';
-import {ConfigService} from './config.service';
-import {Level, Logger} from 'angular2-logger/core';
+import {Component, OnInit} from '@angular/core';
+import {Logger} from 'angular2-logger/core';
+import {PropertyService} from './properties.service';
+import {LoginService} from './login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app works!';
+  loggedIn;
 
-  constructor(private _cs: ConfigService, private _log: Logger) {
-    this.enableLogging();
+  constructor(private _ps: PropertyService, private _ls: LoginService, private _log: Logger) {
   }
 
-  private enableLogging() {
-    const level = this._cs.get('logLevel');
-    if (level) {
-      this._log.level = level;
-    } else {
-      console.error('Unable to find logLevel property');
-      console.log('check if app.config.json has been defined in assets/config');
-    }
+  ngOnInit(): void {
+    this._ls.loginAnnounced.subscribe(login => this.loggedIn = login);
   }
 }
