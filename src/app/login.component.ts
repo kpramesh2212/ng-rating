@@ -21,7 +21,7 @@ export class LoginComponent {
     const password = this.loginForm.controls['password'].value;
     this._ls.doLogin(email, password).subscribe(
       success => {
-        console.log('success');
+        this._log.info('Login successful');
         this._ls.isLoggedIn = true;
         this._router.navigate(['']);
       },

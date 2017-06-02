@@ -18,6 +18,7 @@ export class LoginService {
     headers.append('Authorization', 'Basic ' + btoa(email + ':' + password));
     headers.append('content-type', 'application/json');
     this._ps.headers = headers;
+    this._ps.loggedUser = email;
     return this._http.get(this.getBaseUrl(), { headers: headers });
   }
 

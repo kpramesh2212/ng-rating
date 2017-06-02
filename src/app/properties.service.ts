@@ -10,6 +10,7 @@ export class PropertyService {
   public backendPort: number;
   public logLevel: number;
   public headers: Headers;
+  public loggedUser: string;
 
   constructor(private _http: Http, private _logger: Logger) {
     console.log('Loading properties from ' + environment.configFile);
