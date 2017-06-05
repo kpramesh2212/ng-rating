@@ -19,6 +19,7 @@ import {PropertyService} from './properties.service';
 import {LoginService} from './login.service';
 import {AuthGuard} from './auth-guard.service';
 import {LinkDisabledDirective} from './linkdisabled.directive';
+import {ProjectCUComponent} from './project-cu.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {LinkDisabledDirective} from './linkdisabled.directive';
     NavBarComponent,
     HomeComponent,
     ProjectComponent,
+    ProjectCUComponent,
     ProductComponent,
     CriterionComponent,
     LoginComponent,
