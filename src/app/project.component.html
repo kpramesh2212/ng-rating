@@ -3,13 +3,19 @@
   <tr>
       <th>Project ID</th>
       <th>Project Name</th>
+      <th>Judge</th>
       <th>Edit</th>
       <th>Delete</th>
   </tr>
   <tr *ngFor="let p of projects">
     <td>{{p.id}}</td>
     <td>{{p.name}}</td>
-    <td><i class="glyphicon glyphicon-edit"></i></td>
-    <td><i class="glyphicon glyphicon-remove"></i></td>
+    <td>
+      <a href="#" [appLinkDisabled]="!isRaterContainsLoggedInUser(p.raters)">
+        <i class="fa fa-gavel" aria-hidden="true"></i>
+      </a>
+    </td>
+    <td><a href="#" [appLinkDisabled]="p.admin.email != loggedUser"><i class="glyphicon glyphicon-edit"></i></a></td>
+    <td><a href="#" [appLinkDisabled]="p.admin.email != loggedUser"><i class="glyphicon glyphicon-remove"></i></a></td>
   </tr>
 </table>
