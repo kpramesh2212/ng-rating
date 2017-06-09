@@ -1,10 +1,10 @@
-<form class="h100">
+<form class="h100" (submit)="onSubmit(f)" ngForm #f="ngForm">
   <div class="row h100">
 
     <div class="col-md-6 c">
       <div class="form-group">
         <label for="name">Name: </label>
-        <input type="text" class="form-control" id="name"/>
+        <input ngModel name="projectName" type="text" class="form-control" id="name"/>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>
     </div>
@@ -23,10 +23,12 @@
     <div class="col-md-6 c">
       <div class="panel panel-default h97">
         <div class="panel-heading">
-          <h3 class="panel-title">Add Product</h3>
+          <h3 class="panel-title">
+            Add Products
+          </h3>
         </div>
         <div class="panel-body">
-          Panel content
+          Panel content<span class="pull-right"><button class="btn btn-primary">Add Product</button></span>
         </div>
       </div>
     </div>
@@ -34,13 +36,13 @@
     <div class="col-md-6 c">
       <div class="panel panel-default h97">
         <div class="panel-heading">
-          <h3 class="panel-title">Add Criterion</h3>
+          <h3 class="panel-title">Add Criteria</h3>
         </div>
-        <div class="panel-body">
-          Panel content
+        <div class="panel-body" style="overflow: auto;height: 90%">
+          <app-criteria [criteria]="project.criteria"></app-criteria>
         </div>
       </div>
     </div>
-
   </div>
+
 </form>

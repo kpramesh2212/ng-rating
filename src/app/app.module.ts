@@ -20,6 +20,8 @@ import {LoginService} from './login.service';
 import {AuthGuard} from './auth-guard.service';
 import {LinkDisabledDirective} from './linkdisabled.directive';
 import {ProjectCUComponent} from './project-cu.component';
+import {ModalComponent} from './modal.component';
+import {CriterionCUComponent} from './criterion-cu.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,10 @@ import {ProjectCUComponent} from './project-cu.component';
     ProjectCUComponent,
     ProductComponent,
     CriterionComponent,
+    CriterionCUComponent,
     LoginComponent,
-    LinkDisabledDirective
+    LinkDisabledDirective,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

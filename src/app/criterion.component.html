@@ -1,1 +1,51 @@
-<h1>Criteria</h1>
+<div>
+  <input class="form-control pull-left" style="width: 60%" type="text" name="criterionSearch"/>
+  <span class="pull-right">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#add-criterion">Add Criterion</button>
+    <app-modal modalId="add-criterion">
+      <div class="modalHeading">Add Criterion</div>
+      <div class="modalBody">
+        <app-criterioncu [(criterionNames)]="criterionNames"
+                         (criterionChange)="whenCriterionChange($event)"></app-criterioncu>
+      </div>
+    </app-modal>
+  </span>
+</div>
+<div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
+<div>
+  <div *ngIf="criteria; else noCriteria;">
+    <table  class="table table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let c of criteria; index as i">
+        <td>{{c.name}}</td>
+        <td>{{c.weight}}</td>
+        <td>
+          <a data-toggle="modal" href="#edit-criterion{{i}}"><i class="glyphicon glyphicon-edit"></i></a>
+          <app-modal modalId="edit-criterion{{i}}">
+            <div class="modalHeading">Edit Criterion</div>
+            <div class="modalBody">
+              <app-criterioncu
+                [criterionNames]="criterionNames"
+                [editCriterion]="c"
+                (criterionChange)="whenCriterionChange($event)">
+              </app-criterioncu>
+            </div>
+          </app-modal>
+        </td>
+        <td><i class="glyphicon glyphicon-remove"></i></td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #noCriteria>No Criteria Found</ng-template>
+</div>
+
+
