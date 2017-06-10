@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Criterion} from './criterion';
+import {Product} from "./Product";
 
 @Component({
   templateUrl: './project-cu.component.html',
@@ -46,8 +47,5 @@ interface Project {
   criteria?: Criterion[];
 }
 
-interface Product {
-  id?: number;
-  name: string;
-}
+
 

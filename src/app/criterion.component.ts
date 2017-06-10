@@ -16,9 +16,18 @@ export class CriterionComponent {
   whenCriterionChange(event: CustomChangeEvent) {
     if (event.type === 'new') {
       this.criteria.push(event.value);
-      this.criterionNames = _.pluck(this.criteria, 'name');
     } else {
+      // An update event
+      const cri = _.without(this.criteria, _.findWhere(this.criteria, {name: event.name}));
+      cri.push(event.value);
+      this.criteria = cri;
     }
+    this.criterionNames = _.pluck(this.criteria, 'name');
+  }
+
+  onDelete(c: Criterion) {
+    this.criteria = _.without(this.criteria, _.findWhere(this.criteria, c));
+    this.criterionNames = _.pluck(this.criteria, 'name');
   }
 }
 

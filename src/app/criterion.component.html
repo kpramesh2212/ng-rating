@@ -9,7 +9,7 @@
     <app-modal modalId="add-criterion">
       <div class="modalHeading">Add Criterion</div>
       <div class="modalBody">
-        <app-criterioncu [(criterionNames)]="criterionNames"
+        <app-criterioncu [criterionNames]="criterionNames"
                          (criterionChange)="whenCriterionChange($event)"></app-criterioncu>
       </div>
     </app-modal>
@@ -17,7 +17,7 @@
 </div>
 <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
 <div>
-  <div *ngIf="criteria; else noCriteria;">
+  <div *ngIf="criteria?.length > 0; else noCriteria;">
     <table  class="table table-bordered">
       <tr>
         <th>Name</th>
@@ -41,7 +41,7 @@
             </div>
           </app-modal>
         </td>
-        <td><i class="glyphicon glyphicon-remove"></i></td>
+        <td><a><i class="glyphicon glyphicon-remove" style="cursor:pointer;" (click)="onDelete(c)"></i></a></td>
       </tr>
     </table>
   </div>

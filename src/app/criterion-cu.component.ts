@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {ModalComponent} from './modal.component';
 import {Criterion} from './criterion';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -10,7 +10,7 @@ import {CustomChangeEvent} from './CustomChangeEvent';
   selector: 'app-criterioncu',
   templateUrl: './criterion-cu.component.html'
 })
-export class CriterionCUComponent implements OnInit {
+export class CriterionCUComponent implements OnChanges {
   criterionForm: FormGroup;
   nameControl;
   weightControl;
@@ -21,7 +21,7 @@ export class CriterionCUComponent implements OnInit {
   constructor(private modal: ModalComponent, private _fb: FormBuilder) {
   }
 
-  ngOnInit() {
+  ngOnChanges() {
     if (this.editCriterion) {
       this.criterionNames = _.without(this.criterionNames, this.editCriterion.name);
     } else {

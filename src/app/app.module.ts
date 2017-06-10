@@ -22,6 +22,7 @@ import {LinkDisabledDirective} from './linkdisabled.directive';
 import {ProjectCUComponent} from './project-cu.component';
 import {ModalComponent} from './modal.component';
 import {CriterionCUComponent} from './criterion-cu.component';
+import {ProductCUComponent} from './product-cu.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {CriterionCUComponent} from './criterion-cu.component';
     ProjectComponent,
     ProjectCUComponent,
     ProductComponent,
+    ProductCUComponent,
     CriterionComponent,
     CriterionCUComponent,
     LoginComponent,

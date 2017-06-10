@@ -1,0 +1,12 @@
+<form [formGroup]="productForm" #f="ngForm">
+  <div class="form-group">
+    <label for="productName">Product Name </label>
+    <input type="text" class="form-control" id="productName" formControlName="name"/>
+    <div class="alert alert-danger" *ngIf="nameControl.touched
+                && nameControl.errors">
+      <span *ngIf="nameControl.errors.required">Name is required!</span>
+      <span *ngIf="nameControl.errors.unique">Name should be unique!</span>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="button" (click)="onClick()" [disabled]="!f.valid">Add</button>
+</form>
